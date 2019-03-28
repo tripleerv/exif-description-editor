@@ -1,0 +1,24 @@
+{
+  "name": "exif-description-editor",
+  "version": "1.0.0",
+  "description": "Change image description metadata via CSV.",
+  "engine": {
+    "node": "^10.13.0",
+    "npm": "^6.4.1",
+    "yarn": "^1.15.2"
+  },
+  "bin": {
+    "exif-description": "bin/exif-description"
+  },
+  "scripts": {},
+  "author": "@josiahwiebe",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "csv-parser": "^2.2.0",
+    "execa": "^1.0.0",
+    "mri": "^1.1.4",
+    "ora": "^3.2.0"
+  },
+  "private": true
+}
