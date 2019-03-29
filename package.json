@@ -10,15 +10,24 @@
   "bin": {
     "exif-description": "bin/exif-description"
   },
-  "scripts": {},
+  "scripts": {
+    "build": "pkg package.json"
+  },
   "author": "@josiahwiebe",
   "license": "UNLICENSED",
   "dependencies": {
     "chalk": "^2.4.2",
     "csv-parser": "^2.2.0",
+    "dist-exiftool": "^10.53.0",
     "execa": "^1.0.0",
     "mri": "^1.1.4",
+    "node-exiftool": "^2.3.0",
     "ora": "^3.2.0"
   },
-  "private": true
+  "private": true,
+  "pkg": {
+    "targets": [
+      "macos"
+    ]
+  }
 }

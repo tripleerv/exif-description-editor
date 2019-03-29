@@ -6,16 +6,12 @@ This tool is made specifically for adding an **Image Description** metadata tag 
 
 ### Prerequisites
 - NodeJS 10 or greater
-- exiftool (`brew install exiftool`)
-
 
 First, install the tool globally using npm:
 
 `npm i -g exif-description-editor`
 
-Open up Terminal and move to the directory where the tool is located. For example:
-
-`cd ~/Downloads/exif-description-editor-master`
+Or, if you want the standalone binary, download it from the [releases page](https://github.com/tripleerv/exif-description-editor/releases)
 
 Now run the tool:
 
@@ -26,4 +22,5 @@ The CSV file needs to be formatted as follows:
 | id     | description |
 |-------|---------|
 | 1245845 | Photo of a Unity in the mountains. |
+| 14652159 | My Wonder by the stream. |
 

@@ -37,6 +37,11 @@ buffer-from@^1.0.0:
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
   integrity sha512-MQcXEUbCKtEo7bhqEs6560Hyd4XaovZlO/k9V3hjVUF/zwW7KBVdSK4gIt/bzwS9MbR5qob+F5jusZsb0YQK2A==
 
+catchment@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/catchment/-/catchment-1.0.0.tgz#3061f71be0102710be84328d2f94363a165f8c4b"
+  integrity sha1-MGH3G+AQJxC+hDKNL5Q2OhZfjEs=
+
 chalk@^2.0.1, chalk@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"
@@ -111,6 +116,16 @@ defaults@^1.0.3:
   dependencies:
     clone "^1.0.2"
 
+dist-exiftool@^10.53.0:
+  version "10.53.0"
+  resolved "https://registry.yarnpkg.com/dist-exiftool/-/dist-exiftool-10.53.0.tgz#8bd17bac1e43deacd81d9adacd0f1e24c690100f"
+  integrity sha1-i9F7rB5D3qzYHZrazQ8eJMaQEA8=
+  dependencies:
+    platform-dependent-modules "0.0.14"
+  optionalDependencies:
+    exiftool.exe "10.53"
+    exiftool.pl "10.53"
+
 end-of-stream@^1.1.0:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/end-of-stream/-/end-of-stream-1.4.1.tgz#ed29634d19baba463b6ce6b80a37213eab71ec43"
@@ -135,6 +150,16 @@ execa@^1.0.0:
     p-finally "^1.0.0"
     signal-exit "^3.0.0"
     strip-eof "^1.0.0"
+
+exiftool.exe@10.53:
+  version "10.53.0"
+  resolved "https://registry.yarnpkg.com/exiftool.exe/-/exiftool.exe-10.53.0.tgz#22b1ce60fb8db589469d1aa5b0a1fe09a35bc454"
+  integrity sha1-IrHOYPuNtYlGnRqlsKH+CaNbxFQ=
+
+exiftool.pl@10.53:
+  version "10.53.0"
+  resolved "https://registry.yarnpkg.com/exiftool.pl/-/exiftool.pl-10.53.0.tgz#63c1646b3ad0aed1ce1313d7b5d07da4d7b13d84"
+  integrity sha1-Y8FkazrQrtHOExPXtdB9pNexPYQ=
 
 generate-function@^1.0.1:
   version "1.1.0"
@@ -170,7 +195,7 @@ is-property@^1.0.0:
   resolved "https://registry.yarnpkg.com/is-property/-/is-property-1.0.2.tgz#57fe1c4e48474edd65b09911f26b1cd4095dda84"
   integrity sha1-V/4cTkhHTt1lsJkR8msc1Ald2oQ=
 
-is-stream@^1.1.0:
+is-stream@1.1.0, is-stream@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/is-stream/-/is-stream-1.1.0.tgz#12d4a3dd4e68e0b79ceb8dbc84173ae80d91ca44"
   integrity sha1-EtSj3U5o4Lec6428hBc66A2RykQ=
@@ -196,6 +221,11 @@ log-symbols@^2.2.0:
   integrity sha512-VeIAFslyIerEJLXHziedo2basKbMKtTw3vfn5IzG0XTjhAVEJyNHnL2p7vc+wBDSdQuUpNw3M2u6xb9QsAY5Eg==
   dependencies:
     chalk "^2.0.1"
+
+makepromise@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/makepromise/-/makepromise-1.0.0.tgz#bc6bb6a3e06fd706df51c2923b6936fabd70aa7f"
+  integrity sha1-vGu2o+Bv1wbfUcKSO2k2+r1wqn8=
 
 mimic-fn@^1.0.0:
   version "1.2.0"
@@ -226,6 +256,15 @@ nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
   integrity sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
+
+node-exiftool@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/node-exiftool/-/node-exiftool-2.3.0.tgz#d5142d34de6f1683b4655198b648e7e3ee6e80ac"
+  integrity sha1-1RQtNN5vFoO0ZVGYtkjn4+5ugKw=
+  dependencies:
+    is-stream "1.1.0"
+    restream "1.2.0"
+    wrote "0.6.1"
 
 npm-run-path@^2.0.0:
   version "2.0.2"
@@ -270,6 +309,11 @@ path-key@^2.0.0, path-key@^2.0.1:
   resolved "https://registry.yarnpkg.com/path-key/-/path-key-2.0.1.tgz#411cadb574c5a140d3a4b1910d40d80cc9f40b40"
   integrity sha1-QRyttXTFoUDTpLGRDUDYDMn0C0A=
 
+platform-dependent-modules@0.0.14:
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/platform-dependent-modules/-/platform-dependent-modules-0.0.14.tgz#3c53d0415d81ce22dcfde15665d0cfd541d41617"
+  integrity sha1-PFPQQV2BziLc/eFWZdDP1UHUFhc=
+
 process-nextick-args@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.0.tgz#a37d732f4271b4ab1ad070d35508e8290788ffaa"
@@ -303,6 +347,11 @@ restore-cursor@^2.0.0:
   dependencies:
     onetime "^2.0.0"
     signal-exit "^3.0.2"
+
+restream@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/restream/-/restream-1.2.0.tgz#fd13b031a54e80cc65d1878c43149f1b3a40efbb"
+  integrity sha1-/ROwMaVOgMxl0YeMQxSfGzpA77s=
 
 safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
@@ -395,6 +444,14 @@ wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
   integrity sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
+
+wrote@0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/wrote/-/wrote-0.6.1.tgz#eff11efdd6f18424a70baea2df4322af375b8fbe"
+  integrity sha1-7/Ee/dbxhCSnC66i30Mirzdbj74=
+  dependencies:
+    catchment "1.0.0"
+    makepromise "1.0.0"
 
 xtend@~4.0.1:
   version "4.0.1"
