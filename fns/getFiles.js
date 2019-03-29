@@ -23,7 +23,7 @@ const getImages = async dir => {
 
 const getOriginals = async dir => {
   const files = await getFiles(dir)
-  const originals = await files.filter(file => file.contains('_original'))
+  const originals = await files.filter(file => file.includes('_original'))
   return originals
 }
 
