@@ -11,15 +11,16 @@
     "exif-description": "bin/exif-description"
   },
   "scripts": {
-    "build": "pkg package.json"
+    "build": "pkg package.json --output dist/"
   },
   "author": "@josiahwiebe",
   "license": "UNLICENSED",
   "dependencies": {
     "chalk": "^2.4.2",
-    "csv-parser": "^2.2.0",
+    "csv-parser": "^2.3.2",
     "dist-exiftool": "^10.53.0",
     "execa": "^1.0.0",
+    "iconv-lite": "^0.5.0",
     "mri": "^1.1.4",
     "node-exiftool": "^2.3.0",
     "ora": "^3.2.0"
