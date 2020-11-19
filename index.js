@@ -21,10 +21,8 @@ module.exports = async () => {
     process.exit()
   }
 
-  spinner.text = 'Fetching CSV data...'
-  const data = await getCsvData(csvFile)
   spinner.text = 'Getting images from directory...'
-  const images = await getImages(sourceDir)
+  const [data, images] = await Promise.all([getCsvData(csvFile), getImages(sourceDir)])
   spinner.text = 'Updating image metadata...'
   await updateDescriptions(sourceDir, images, data)
 
