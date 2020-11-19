@@ -1,6 +1,6 @@
 {
   "name": "exif-description-editor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Change image description metadata via CSV.",
   "engine": {
     "node": "^10.13.0",
