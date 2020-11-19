@@ -1,6 +1,6 @@
 {
   "name": "exif-description-editor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Change image description metadata via CSV.",
   "homepage": "https://github.com/tripleerv/exif-description-editor/",
   "bugs": {
