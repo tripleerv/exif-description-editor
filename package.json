@@ -2,6 +2,11 @@
   "name": "exif-description-editor",
   "version": "1.0.1",
   "description": "Change image description metadata via CSV.",
+  "homepage": "https://github.com/tripleerv/exif-description-editor/",
+  "bugs": {
+    "url": "https://github.com/tripleerv/exif-description-editor/issues"
+  },
+  "repository": "github.com:tripleerv/exif-description-editor.git",
   "engine": {
     "node": "^10.13.0",
     "npm": "^6.4.1",
@@ -14,7 +19,7 @@
     "build": "pkg package.json --output dist/"
   },
   "author": "@josiahwiebe",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.2",
     "csv-parser": "^2.3.2",
@@ -25,7 +30,6 @@
     "node-exiftool": "^2.3.0",
     "ora": "^3.2.0"
   },
-  "private": true,
   "pkg": {
     "targets": [
       "macos"
