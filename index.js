@@ -1,12 +1,13 @@
-const mri = require('mri')
-const ora = require('ora')
-const chalk = require('chalk')
-const { resolve } = require('path')
-const getCsvData = require('./fns/getCsvData')
-const { getImages, } = require('./fns/getFiles')
-const updateDescriptions = require('./fns/updateDescriptions')
+#!/usr/bin/env node
+import mri from 'mri'
+import ora from 'ora'
+import chalk from 'chalk'
+import { resolve } from 'path'
+import { getCsvData } from './fns/getCsvData.js'
+import { getImages } from './fns/getFiles.js'
+import { updateDescriptions } from './fns/updateDescriptions.js'
 
-module.exports = async () => {
+const main = async () => {
   const spinner = ora('Processing images').start()
   const args = mri(process.argv.slice(2))
 
@@ -29,3 +30,5 @@ module.exports = async () => {
   spinner.succeed('Image metadata has been updated')
   process.exit()
 }
+
+main()
