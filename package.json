@@ -10,10 +10,10 @@
   "dependencies": {
     "csv-parser": "^2.3.1",
     "csv-writer": "^1.6.0",
-    "dist-exiftool": "^10.53.0",
+    "exiftool-vendored": "^28.7.0",
     "iconv-lite": "^0.6.3",
-    "node-exiftool": "^2.3.0",
-    "sade": "^1.8.1"
+    "sade": "^1.8.1",
+    "yocto-spinner": "^0.1.1"
   },
   "publishConfig": {
     "access": "public"
