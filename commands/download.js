@@ -1,9 +1,11 @@
 import { resolve } from 'path'
+import yoctoSpinner from 'yocto-spinner'
 import { createObjectCsvWriter } from 'csv-writer'
 import { mkdir, writeFile } from 'fs/promises'
 import { existsSync } from 'fs'
 
 export default async (options) => {
+  const spinner = yoctoSpinner({ text: 'Downloading entries...' }).start()
   const contestId = options.id || 1129
   const dest = resolve(options.dest)
   let page = 1
@@ -43,7 +45,6 @@ export default async (options) => {
     totalEntries = data.total_count
 
     const pageDownloads = data.Entries.map((entry) => {
-      console.info(`Downloading entry with ID ${entry.Entry.entry_id}...`)
       csvRecords.push({
         id: entry.Entry.entry_id,
         submitter_first_name: entry.Entry.User.first_name,
@@ -56,7 +57,7 @@ export default async (options) => {
       return downloadFile(
         entry.Entry.Photo.image_src_url,
         `${dest}/${entry.Entry.entry_id}.${entry.Entry.Photo.image_extension}`
-      ).catch((err) => console.error(`Failed to download entry ${entry.Entry.entry_id}:`, err))
+      ).catch((err) => console.error(`Failed to download entry ${entry.Entry.entry_id}:`, err.message))
     })
     downloadPromises.push(...pageDownloads)
 
@@ -64,11 +65,12 @@ export default async (options) => {
     page++
   } while (fetchedEntries < totalEntries)
 
-  await Promise.allSettled(downloadPromises)
+  spinner.text = `Downloading ${totalEntries} entries...`
+  await Promise.all(downloadPromises)
 
+  spinner.text = 'Writing CSV file...'
   await csvWriter.writeRecords(csvRecords)
-  console.info('✔ CSV file created.')
-  console.info('✔ Download complete.')
+  spinner.success('Download complete.')
 }
 
 const downloadFile = async (url, path) => {
