@@ -1,6 +1,6 @@
 {
   "name": "@tripleerv/strutta-tools",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "bin": {
     "strutta-tools": "index.js"
   },
