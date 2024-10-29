@@ -1,8 +1,5 @@
-import { promisify } from 'util'
-import fs from 'fs'
 import { resolve, basename } from 'path'
-const readdir = promisify(fs.readdir)
-const stat = promisify(fs.stat)
+import { readdir, stat } from 'fs/promises'
 
 export const getFiles = async (dir) => {
   const subdirs = await readdir(dir)

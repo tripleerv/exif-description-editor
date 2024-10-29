@@ -1,34 +1,33 @@
 #!/usr/bin/env node
-import mri from 'mri'
-import ora from 'ora'
-import chalk from 'chalk'
-import { resolve } from 'path'
-import { getCsvData } from './fns/getCsvData.js'
-import { getImages } from './fns/getFiles.js'
-import { updateDescriptions } from './fns/updateDescriptions.js'
 
-const main = async () => {
-  const spinner = ora('Processing images').start()
-  const args = mri(process.argv.slice(2))
+import sade from 'sade'
+import download from './commands/download.js'
+import updateDescriptions from './commands/updateDescriptions.js'
 
-  let sourceDir = args.source ? resolve(args.source) : null
-  if (!sourceDir) {
-    console.error(chalk.red(`\nNo source provided. Provide one with ${chalk.bold('--source')}`))
-    process.exit()
-  }
-  let csvFile = args.csv ? resolve(args.csv) : null
-  if (!csvFile) {
-    console.error(chalk.red(`\nNo CSV provided. Provide one with ${chalk.bold('--csv')}`))
-    process.exit()
-  }
+const prog = sade('strutta-tools')
 
-  spinner.text = 'Getting images from directory...'
-  const [data, images] = await Promise.all([getCsvData(csvFile), getImages(sourceDir)])
-  spinner.text = 'Updating image metadata...'
-  await updateDescriptions(sourceDir, images, data)
+prog.version('1.0.0')
 
-  spinner.succeed('Image metadata has been updated')
-  process.exit()
-}
+prog
+  .command('download')
+  .describe('Download files from Strutta API. Expects a contest ID.')
+  .option('-i --id', 'Set the contest ID')
+  .option('-d --dest', 'Set the destination', './dist')
+  .option('-x --no-emit', 'Do not output the CSV file', false)
+  .example('download --id 1129 --dest dist/')
+  .example('download --id 1129 --dest dist/ --no-emit')
+  .action((opts) => {
+    download(opts)
+  })
+  .command('update')
+  .describe('Update file descriptions. Expects a CSV file.')
+  .option('-s --source', 'Set the image source directory', './dist')
+  .option('-c --csv', 'Set the CSV file', './dist/entries.csv')
+  .option('-i --id', 'The name of the ID field in the CSV file', 'ID')
+  .option('-d --description', 'The name of the description field in the CSV file', 'Description')
+  .example('update --source dist/ --csv dist/entries.csv')
+  .action((opts) => {
+    updateDescriptions(opts)
+  })
 
-main()
+prog.parse(process.argv)
