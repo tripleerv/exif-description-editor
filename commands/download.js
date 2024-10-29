@@ -1,8 +1,7 @@
 import { resolve } from 'path'
-import { writeFile } from 'fs'
-import { promisify } from 'util'
 import { createObjectCsvWriter } from 'csv-writer'
-const writeFilePromise = promisify(writeFile)
+import { mkdir, writeFile } from 'fs/promises'
+import { existsSync } from 'fs'
 
 export default async (options) => {
   const contestId = options.id || 1129
@@ -12,6 +11,11 @@ export default async (options) => {
   let totalEntries = 0
   let fetchedEntries = 0
   let downloadPromises = []
+
+  if (!existsSync(dest)) {
+    console.info(`Creating directory ${dest}...`)
+    await mkdir(dest, { recursive: true })
+  }
 
   const csvWriter = createObjectCsvWriter({
     path: `${dest}/entries.csv`,
@@ -70,7 +74,7 @@ export default async (options) => {
 const downloadFile = async (url, path) => {
   return fetch(url)
     .then((res) => res.arrayBuffer())
-    .then((buf) => writeFilePromise(path, Buffer.from(buf)))
+    .then((buf) => writeFile(path, Buffer.from(buf)))
 }
 
 const getSignature = async () => {
